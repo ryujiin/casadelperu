@@ -2,7 +2,7 @@
 include('../mysql.php');
 $db = new MySQL();
 session_start();
-
+ echo 'chato cagon';
 ?>
 <!doctype html>
 <html class="no-js" lang="">
