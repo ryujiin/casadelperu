@@ -2,7 +2,9 @@
 include('../mysql.php');
 $db = new MySQL();
 session_start();
- echo 'chato cagon';
+$admin = $_SESSION['admin'];
+$page = $_GET['page'];
+$form = $_GET['form'];
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -25,7 +27,7 @@ session_start();
     <body>
         <?php
         //Verificar si el administrador existe
-        if ($_SESSION['admin']) {
+        if ($admin) {
             include('oficina.php');
         }else{
             //No estoy logueado

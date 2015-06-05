@@ -43,25 +43,25 @@
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<?php
-					if ($_GET['page']=='catalogo') {
-						if ($_GET['form']=='nuevo_producto') {
+					if ($page=='catalogo') {
+						if ($form=='nuevo_producto') {
 							include('formulario/nuevo_producto.php');
-						}elseif ($_GET['form']=='editar_producto') {
+						}elseif ($form=='editar_producto') {
 							include('formulario/editar_producto.php');
 						}else{
 							include('catalogo.php');
 						}
-					}elseif ($_GET['page']=='cliente') {
-						if ($_GET['form']=='nuevo') {
+					}elseif ($page=='cliente') {
+						if ($form=='nuevo') {
 							include('formulario/nuevo_cliente.php');
-						}elseif ($_GET['form']=='editar_producto') {
+						}elseif ($form=='editar_producto') {
 							include('formulario/editar_producto.php');
 						}else{
 							include('cliente.php');
 						}												
 					}
-					elseif ($_GET['page']=='carros') {
-						echo "carros";
+					elseif ($page=='carros') {
+						include('carros.php');
 					}
 					else{
 						echo 'Hola administrador';
