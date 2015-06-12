@@ -25,6 +25,7 @@ $form = $_GET['form'];
         <script src="/casa/static/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
+        
         <?php
         //Verificar si el administrador existe
         if ($admin) {
@@ -34,6 +35,10 @@ $form = $_GET['form'];
             include('login.php');
         }
         ?>
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>        
+        <script src="/casa/static/js/admin.js"></script>
+
     </body>
 </html>
 <?php

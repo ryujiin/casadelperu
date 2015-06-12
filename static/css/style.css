@@ -16,3 +16,4 @@ img{width:100%}
 #catalogo .filtro{box-shadow:0 -1px 0 rgba(0,0,0,0.08),0 2px 4px rgba(0,0,0,0.015);border-bottom:1px solid rgba(0,0,0,0.08);padding:15px 0;}
 #catalogo .filtro select{float:right}
 .productos{margin:20px 0}
+#producto_single{margin-top:30px}

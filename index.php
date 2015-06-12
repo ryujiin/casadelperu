@@ -1,3 +1,16 @@
+<?php
+include('mysql.php');
+$db = new MySQL();
+session_start();
+$producto = $_GET['producto'];
+$login = $_SESSION['login'];
+if ($login == True) {
+    $user = 'Bienvenido '. $_SESSION['usuario'];
+    $id_user = $_SESSION['id_usuario'];
+}else{
+    $user = '<a href="/casa/ingresar/">Ingresar/Registrarse</a>';
+}
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -21,7 +34,9 @@
             <div class="contenedor row">
                 <div class="logo col-md-7">
                     <h1 class="logo-main">
-                        La Casa del Perú
+                        <a href="/casa/">
+                            La Casa del Perú                                                       
+                        </a>
                     </h1>
                     <p class="logo-subtitulo">
                         Artesanias Peruanas para todo el Mundo
@@ -30,7 +45,7 @@
                 <div class="menu-secundario col-md-5">
                     <nav class="menu menu-enlinea">
                         <ul>
-                            <li><a href="">Ingresar/Registrarse</a></li>
+                            <li><?php echo $user; ?></li>
                             <li><a href="">0 - items <span>S/. 0.00 </span></a></li>
                             <li><a href="">Checkout</a></li>
                         </ul>
@@ -51,74 +66,14 @@
         </header>
         <div class="main">
             <section id="carrusel-principal">
-            </section>    
-            <section id="catalogo" class="contenedor">
-                <div class="titulo">
-                    <h2>Catalogo</h2>
-                </div>
-                <div class="filtro">
-                    <span>1 - 12  de 24 resultados</span>
-                    <select name="sortby" id="sortby">
-                        <option value="0">Predeterminado</option>
-                        <option value="0">Por Popularidad</option>
-                        <option value="0">Por Novedad</option>
-                        <option value="0">Por precio : Mayor a menor</option>
-                        <option value="0">Por precio : Menor a mayor</option>
-                    </select>
-                </div>
-                <div class="productos container-fluid">
-                    <div class="row">
-                        <article class="producto col-md-3">
-                            <figure>
-                                <img src="/casa/media/diseno1.jpg" alt="">
-                            </figure>
-                            <div class="datos-producto">
-                                <p class="nombre">Producto 1</p>
-                                <div class="precio">
-                                    <span class="old-precio">S/. 20.00</span>
-                                    <span class="actual-precio">S/. 10.00</span>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="producto col-md-3">
-                            <figure>
-                                <img src="/casa/media/diseno1.jpg" alt="">
-                            </figure>
-                            <div class="datos-producto">
-                                <p class="nombre">Producto 1</p>
-                                <div class="precio">
-                                    <span class="old-precio">S/. 20.00</span>
-                                    <span class="actual-precio">S/. 10.00</span>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="producto col-md-3">
-                            <figure>
-                                <img src="/casa/media/diseno1.jpg" alt="">
-                            </figure>
-                            <div class="datos-producto">
-                                <p class="nombre">Producto 1</p>
-                                <div class="precio">
-                                    <span class="old-precio">S/. 20.00</span>
-                                    <span class="actual-precio">S/. 10.00</span>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="producto col-md-3">
-                            <figure>
-                                <img src="/casa/media/diseno1.jpg" alt="">
-                            </figure>
-                            <div class="datos-producto">
-                                <p class="nombre">Producto 1</p>
-                                <div class="precio">
-                                    <span class="old-precio">S/. 20.00</span>
-                                    <span class="actual-precio">S/. 10.00</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
             </section>
+            <?php
+            if ($producto!='') {
+                include('codigo/producto.php');
+            }else{
+                include('codigo/catalogo.php');
+            }
+            ?> 
         </div>
         <footer></footer>
 

@@ -18,6 +18,8 @@ $consulta = $db->consulta("SELECT * FROM usuarios WHERE correo = '$usuario' AND 
 			echo "estoy logueado";
 			$_SESSION['admin'] = True;
 			$_SESSION['usuario'] = $usuario;
+			$_SESSION['id_usuario'] = $resultados['id_usuario'];
+			$_SESSION['login'] = True;
 
 		}else{
 			echo "no estoy login";
