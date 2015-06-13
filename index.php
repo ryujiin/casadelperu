@@ -8,7 +8,8 @@ if ($login == True) {
     $user = 'Bienvenido '. $_SESSION['usuario'];
     $id_user = $_SESSION['id_usuario'];
 }else{
-    $user = '<a href="/casa/ingresar/">Ingresar/Registrarse</a>';
+    $user = '<button type="button" class="login-boton" data-toggle="modal" data-target="#login_user">Ingresar/Registrarse</button>';
+
 }
 ?>
 <!doctype html>
@@ -25,6 +26,7 @@ if ($login == True) {
 
         <link rel="stylesheet" href="/casa/static/css/normalize.css">
         <link rel="stylesheet" href="/casa/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="/casa/static/css/main.css">
         <link rel="stylesheet" href="/casa/static/css/style.css">
         <script src="/casa/static/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -75,9 +77,15 @@ if ($login == True) {
             }
             ?> 
         </div>
+        <?php
+        if ($login!=True) {
+            include('htmls/forms_login.php');            
+        }
+        ?>
         <footer></footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>                
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
         <script src="/casa/static/js/plugins.js"></script>
         <script src="/casa/static/js/main.js"></script>
