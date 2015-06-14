@@ -3,13 +3,16 @@ include('mysql.php');
 $db = new MySQL();
 session_start();
 $producto = $_GET['producto'];
+$categoria = $_GET['categoria'];
+$page = $_GET['page'];
 $login = $_SESSION['login'];
+//Averiguar usuario
 if ($login == True) {
     $user = 'Bienvenido '. $_SESSION['usuario'];
     $id_user = $_SESSION['id_usuario'];
+    include('codigo/carrito.php');
 }else{
     $user = '<button type="button" class="login-boton" data-toggle="modal" data-target="#login_user">Ingresar/Registrarse</button>';
-
 }
 ?>
 <!doctype html>
@@ -26,7 +29,6 @@ if ($login == True) {
 
         <link rel="stylesheet" href="/casa/static/css/normalize.css">
         <link rel="stylesheet" href="/casa/static/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="/casa/static/css/main.css">
         <link rel="stylesheet" href="/casa/static/css/style.css">
         <script src="/casa/static/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -48,21 +50,17 @@ if ($login == True) {
                     <nav class="menu menu-enlinea">
                         <ul>
                             <li><?php echo $user; ?></li>
-                            <li><a href="">0 - items <span>S/. 0.00 </span></a></li>
-                            <li><a href="">Checkout</a></li>
+                            <li><a href="/casa/?page=carro"><?php echo $total_lineas ?> - items <span>S/.<?php echo $total_carro ?></span></a></li>
+                            <li><a href="/casa/?page=pagar">Checkout</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <div class="menu-primario">
                 <nav class="menu-main menu-enlinea">
-                    <ul>
-                        <li><a class="activo" href="/">Inicio</a></li>
-                        <li><a href="/">Ceramico</a></li>
-                        <li><a href="/">Textileria</a></li>
-                        <li><a href="/">Orfereria</a></li>
-                        <li><a href="/">EBANISTERIA</a></li>                        
-                    </ul>
+                    <?php
+                    include('htmls/menu_principal.php');
+                    ?>
                 </nav>
             </div>
         </header>
@@ -70,23 +68,31 @@ if ($login == True) {
             <section id="carrusel-principal">
             </section>
             <?php
-            if ($producto!='') {
-                include('codigo/producto.php');
+            if ($page=='') {
+                if ($producto!='') {
+                    include('codigo/producto.php');
+                }else{
+                    include('codigo/catalogo.php');
+                }
             }else{
-                include('codigo/catalogo.php');
-            }
+                if ($page=='carro') {
+                    
+                }elseif ($page=='pagar') {
+
+                }
+            };            
             ?> 
         </div>
         <?php
+
         if ($login!=True) {
             include('htmls/forms_login.php');            
         }
+        echo $db->getTotalConsultas();
         ?>
         <footer></footer>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>                
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="/casa/static/js/vendor/jquery.js"></script> 
+        <script src="/casa/static/js/vendor/bootstrap.min.js"></script>
         <script src="/casa/static/js/plugins.js"></script>
         <script src="/casa/static/js/main.js"></script>
     </body>

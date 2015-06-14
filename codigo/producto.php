@@ -7,6 +7,11 @@ if($db->num_rows($consulta)>0){
     	$producto_res=$resultados;
     }
 }
+if ($login == True) {
+	$boton_add_cart = '<button type="submit" class="btn btn-success btn-lg add_cart" data-producto="'.$producto_res['id_producto'].'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Agregar al carro</button>';
+}else{
+	$boton_add_cart ='<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#login_user"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Agregar al carro</button>';
+}
 ?>
 <section id="producto_single" class="contenedor">
 	<div class="row">
@@ -34,9 +39,11 @@ if($db->num_rows($consulta)>0){
 				<strong>Descripcion:</strong>
 				<p><?php echo $producto_res['descripcion']; ?></p>
 			</blockquote>
-			<form action="">
+			<form action="validar/add_cart.php" method='post'>
+				<input type="hidden" name="id_producto" value="<?php echo $producto_res['id_producto'] ?>">
+				<input type="hidden" name="total" value="<?php echo $producto_res['precio'] ?>">
 				<p class="text-center">
-					<button type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Agregar al carro</button>					
+					<?php echo $boton_add_cart;?>
 				</p>
 			</form>
 		</div>

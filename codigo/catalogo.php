@@ -1,5 +1,9 @@
 <?php
-$query = "SELECT * FROM producto";
+if ($id_categoria=='') {
+    $query = "SELECT * FROM producto";
+}else{
+    $query = "SELECT * FROM producto WHERE id_categoria = $id_categoria";
+}
 $consulta = $db->consulta($query);
 $productos = '';
 if($db->num_rows($consulta)>0){
@@ -19,14 +23,15 @@ if($db->num_rows($consulta)>0){
                             </a>
                         </article>';
     }
+    $num_productos = $db->num_rows($consulta);
 }
 ?>
             <section id="catalogo" class="contenedor">
                 <div class="titulo">
-                    <h2>Catalogo</h2>
+                    <h2>Catalogo <small><?php echo $categoria ?></small></h2>
                 </div>
                 <div class="filtro">
-                    <span>1 - 12  de 24 resultados</span>
+                    <span><?php echo $num_productos ?> resultados</span>
                     <select name="sortby" id="sortby">
                         <option value="0">Predeterminado</option>
                         <option value="0">Por Popularidad</option>
