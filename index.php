@@ -5,15 +5,17 @@ session_start();
 $producto = $_GET['producto'];
 $categoria = $_GET['categoria'];
 $page = $_GET['page'];
+$login = '';
 $login = $_SESSION['login'];
 //Averiguar usuario
 if ($login == True) {
     $user = 'Bienvenido '. $_SESSION['usuario'];
     $id_user = $_SESSION['id_usuario'];
-    include('codigo/carrito.php');
 }else{
     $user = '<button type="button" class="login-boton" data-toggle="modal" data-target="#login_user">Ingresar/Registrarse</button>';
 }
+include('codigo/carrito.php');
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -76,9 +78,9 @@ if ($login == True) {
                 }
             }else{
                 if ($page=='carro') {
-                    
+                    include ('codigo/carro.php');
                 }elseif ($page=='pagar') {
-
+                    include ('codigo/pagar.php');                    
                 }
             };            
             ?> 

@@ -26,7 +26,7 @@ if($db->num_rows($consulta)>0){
 		<td><?php echo $resultados['id_carro'] ?></td>
 		<td><?php echo $resultados['correo'];?></td>
 		<td><?php echo $resultados['estado'] ?></td>
-		<td><?php echo $resultados['fecha'] ?></td>
+		<td><?php echo $resultados['creado'] ?></td>
 		<td>
 			<a class="btn btn-default" href="" role="button">Ver</a>
 			<a class="btn btn-default" href="?page=carro&form=editar&producto=<?php echo $resultados['id_carro'] ?>" role="button">Editar</a>

@@ -29,5 +29,8 @@ if ($login==True) {
 		}		
 	}
 	$total_carro = number_format((float)$total_carro, 2, '.', '');
+}else{
+	$total_lineas = 0;
+	$total_carro = number_format((float)0, 2, '.', '');	
 }
 ?>
