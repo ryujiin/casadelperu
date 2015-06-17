@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/casa/admin/">Casa del Peru</a>
+          <a class="navbar-brand" href="/admin/">Casa del Peru</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -28,16 +28,16 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li class="active">
-						<a href="/casa/admin/">Home</a>
+						<a href="/admin/">Home</a>
 					</li>
 					<li class="">
-						<a href="/casa/admin/?page=catalogo">Catalogo</a>
+						<a href="/admin/?page=catalogo">Catalogo</a>
 					</li>
 					<li class="">
-						<a href="/casa/admin/?page=cliente">Clientes</a>
+						<a href="/admin/?page=cliente">Clientes</a>
 					</li>
 					<li class="">
-						<a href="/casa/admin/?page=carros">Carros</a>
+						<a href="/admin/?page=carros">Carros</a>
 					</li>
 				</ul>
 			</div>

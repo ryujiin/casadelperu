@@ -9,7 +9,7 @@ $productos = '';
 if($db->num_rows($consulta)>0){
     while($resultados = $db->fetch_array($consulta)){
         $productos = $productos.'<article class="producto col-md-3">
-                            <a href="/casa/?producto='.$resultados['id_producto'].'">
+                            <a href="/?producto='.$resultados['id_producto'].'">
                             <figure>
                                 <img src="'.$resultados['imagen'].'" alt="">
                             </figure>

@@ -30,9 +30,28 @@ if($db->num_rows($consulta)>0){
 		<td>
 			<a class="btn btn-default" href="" role="button">Ver</a>
 			<a class="btn btn-default" href="?page=carro&form=editar&producto=<?php echo $resultados['id_carro'] ?>" role="button">Editar</a>
-			<a class="btn btn-default" href="#" role="button">Eliminar</a>
+			<button type="button" class="btn btn-primary boton_eliminar" data-toggle="modal" data-target="#eliminar_carro<?php echo $resultados['id_carro'] ?>">
+					Eliminar
+				</button>
 		</td>
 	</tr>
+		<div class="modal fade" id="eliminar_carro<?php echo $resultados['id_carro'] ?>">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Eliminar <?php echo $resultados['nombre'] ?></h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>Esta seguro que desea Eliminar este Carro de  <?php echo $resultados['correo'] ?>? Esto no es reversible.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<a class="btn btn-primary" href="accion/eliminar_carro.php?carro=<?php echo $resultados['id_carro'] ?>" role="button">Eliminar</a>		        
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 <?php
 	}
 }else{

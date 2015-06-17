@@ -6,6 +6,6 @@ $producto = $_GET["producto"];
 
 $consulta = $db->consulta("DELETE FROM producto WHERE producto.id_producto = '$producto';");
 
-header("Location: ../index.php?page=catalogo");
+header("Location: /admin/?page=catalogo");
 
 ?>

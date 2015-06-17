@@ -7,6 +7,7 @@ $descripcion = $_POST["descripcion"];
 $precio = $_POST["precio"];
 $categoria = $_POST["categoria"];
 $stock = $_POST["stock"];
+$num_random = rand (100 ,100000 );
 
 if ($_FILES["imagen_producto"]) {
 	if ($_FILES["imagen_producto"]["error"] > 0){
@@ -22,7 +23,8 @@ if ($_FILES["imagen_producto"]) {
 			
 			$nombre_img = str_replace($search, $replace, strtolower($_FILES['imagen_producto']['name']));
 
-			$ruta = "imagenes/" . $nombre_img;
+			$ruta = "imagenes/$num_random" . $nombre_img;
+			echo $ruta;
 			//comprovamos si este archivo existe para no volverlo a copiar.
 			//pero si quieren pueden obviar esto si no es necesario.
 			//o pueden darle otro nombre para que no sobreescriba el actual.
@@ -33,7 +35,7 @@ if ($_FILES["imagen_producto"]) {
 				$resultado = @move_uploaded_file($_FILES["imagen_producto"]["tmp_name"], $ruta);
 				if ($resultado){
 					//cambiar ruta segun sea necesario
-					$ruta_absoluta = '/casa/admin/formulario/'.$ruta;
+					$ruta_absoluta = '/admin/formulario/'.$ruta;
 
 					$consulta = $db->consulta("INSERT INTO producto (id_producto, nombre, precio, descripcion, id_categoria, imagen,stock) 
 														VALUES (NULL, '$nombre', $precio, '$descripcion', $categoria, '$ruta_absoluta',$stock)");

@@ -34,7 +34,7 @@ if($db->num_rows($consulta)>0){
 			<td><?php echo $resultados['precio'] ?></td>
 			<td><?php echo $resultados['stock'] ?></td>
 			<td>
-				<a class="btn btn-default" href="" role="button">Ver</a>
+				<a class="btn btn-default" href="/?producto=<?php echo $resultados['id_producto'] ?>" target="blank" role="button">Ver</a>
 				<a class="btn btn-default" href="?page=catalogo&form=editar_producto&producto=<?php echo $resultados['id_producto'] ?>" role="button">Editar</a>
 				<button type="button" class="btn btn-primary boton_eliminar" data-toggle="modal" data-target="#elimar_producto<?php echo $resultados['id_producto'] ?>">
 					Eliminar
@@ -53,8 +53,7 @@ if($db->num_rows($consulta)>0){
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<a class="btn btn-primary" href="accion/eleminar_catalogo.php?producto=<?php echo $resultados['id_producto'] ?>" role="button">Eliminar</a>
-		        
+				<a class="btn btn-primary" href="accion/eleminar_catalogo.php?producto=<?php echo $resultados['id_producto'] ?>" role="button">Eliminar</a>		        
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
