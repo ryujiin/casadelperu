@@ -12,7 +12,10 @@ $total = $_POST['total'];
 $id_carro = $_SESSION['id_carro'];
 if ($login==True) {
 	if ($id_producto!='') {
-		# code...
+		$query = "INSERT INTO `linea_pedido` (`id_linea_pedido`, `id_producto`, `cantidad`, `total`, `id_carro`) 
+									VALUES (Null, $id_producto, $cantidad, '$total', '$id_carro')";
+		$consulta = $db->consulta($query);
+		header("Location: /casa/?page=carro");
 	}
 }
 ?>

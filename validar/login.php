@@ -5,6 +5,9 @@ session_start();
 **y los almacenamos en variables.*/
 $db = new MySQL();
 
+
+$usuario = "";   
+$password = "";
 $usuario = $_POST["user"];   
 $password = $_POST["pass"];
 
@@ -20,12 +23,11 @@ $consulta = $db->consulta("SELECT * FROM usuarios WHERE correo = '$usuario' AND 
 			$_SESSION['usuario'] = $usuario;
 			$_SESSION['id_usuario'] = $resultados['id_usuario'];
 			$_SESSION['login'] = True;
-			echo "login";
+			header("Location: /casa/");
 		}else{
 			echo "no estoy login";
 		}
 	}else{
 		echo "owfpwfop";
-	}
-	
+	}	
 ?>
