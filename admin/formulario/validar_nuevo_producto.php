@@ -32,7 +32,7 @@ if ($_FILES["imagen_producto"]) {
 				//aqui movemos el archivo desde la ruta temporal a nuestra ruta
 				//usamos la variable $resultado para almacenar el resultado del proceso de mover el archivo
 				//almacenara true o false
-				$resultado = move_uploaded_file($_FILES["imagen_producto"]["tmp_name"], $ruta);
+				$resultado = @move_uploaded_file($_FILES["imagen_producto"]["tmp_name"], $ruta);
 				if ($resultado){
 					//cambiar ruta segun sea necesario
 					$ruta_absoluta = '/admin/formulario/'.$nombre_img;

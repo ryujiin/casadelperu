@@ -54,8 +54,8 @@
 					}elseif ($page=='cliente') {
 						if ($form=='nuevo') {
 							include('formulario/nuevo_cliente.php');
-						}elseif ($form=='editar_producto') {
-							include('formulario/editar_producto.php');
+						}elseif ($form=='editar') {
+							include('formulario/editar_cliente.php');
 						}else{
 							include('cliente.php');
 						}												
