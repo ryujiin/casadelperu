@@ -18,11 +18,11 @@ $form = $_GET['form'];
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="/casa/static/css/normalize.css">
-        <link rel="stylesheet" href="/casa/static/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/casa/static/css/main.css">
-        <link rel="stylesheet" href="/casa/static/css/admin.css">
-        <script src="/casa/static/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="/static/css/admin.css">
+        <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
         
@@ -37,7 +37,7 @@ $form = $_GET['form'];
         ?>
         <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>        
-        <script src="/casa/static/js/admin.js"></script>
+        <script src="/static/js/admin.js"></script>
 
     </body>
 </html>

@@ -29,18 +29,18 @@ include('codigo/carrito.php');
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="/casa/static/css/normalize.css">
-        <link rel="stylesheet" href="/casa/static/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/casa/static/css/main.css">
-        <link rel="stylesheet" href="/casa/static/css/style.css">
-        <script src="/casa/static/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
         <header class="container-fluid">
             <div class="contenedor row">
                 <div class="logo col-md-7">
                     <h1 class="logo-main">
-                        <a href="/casa/">
+                        <a href="/">
                             La Casa del Perú                                                       
                         </a>
                     </h1>
@@ -52,8 +52,8 @@ include('codigo/carrito.php');
                     <nav class="menu menu-enlinea">
                         <ul>
                             <li><?php echo $user; ?></li>
-                            <li><a href="/casa/?page=carro"><?php echo $total_lineas ?> - items <span>S/.<?php echo $total_carro ?></span></a></li>
-                            <li><a href="/casa/?page=pagar">Checkout</a></li>
+                            <li><a href="/?page=carro"><?php echo $total_lineas ?> - items <span>S/.<?php echo $total_carro ?></span></a></li>
+                            <li><a href="/?page=pagar">Checkout</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -93,9 +93,9 @@ include('codigo/carrito.php');
         echo $db->getTotalConsultas();
         ?>
         <footer></footer>
-        <script src="/casa/static/js/vendor/jquery.js"></script> 
-        <script src="/casa/static/js/vendor/bootstrap.min.js"></script>
-        <script src="/casa/static/js/plugins.js"></script>
-        <script src="/casa/static/js/main.js"></script>
+        <script src="/static/js/vendor/jquery.js"></script> 
+        <script src="/static/js/vendor/bootstrap.min.js"></script>
+        <script src="/static/js/plugins.js"></script>
+        <script src="/static/js/main.js"></script>
     </body>
 </html>
