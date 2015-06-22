@@ -1,5 +1,7 @@
 <?php
 $table = '';
+$total_carro_final=0;
+$subtotal_carro_final=0;
 if ($total_lineas!=0) {
     $query="SELECT * FROM linea_pedido INNER JOIN producto ON linea_pedido.id_producto = producto.id_producto WHERE id_carro = $id_carro";
     $consulta = $db->consulta($query);
@@ -8,6 +10,7 @@ if ($total_lineas!=0) {
             $precio = number_format((float) $resultados[precio], 2, '.', '');
             $total = $precio * $resultados[cantidad];
             $total = number_format((float)$total, 2, '.', '');
+            $total_carro_final = $total_carro_final + $total;
             $table = $table.'<tr>
                     <td>
                         <figure>
@@ -29,6 +32,12 @@ if ($total_lineas!=0) {
                 </tr>';
         }       
     }
+    $subtotal_carro_final = $total_carro_final / 1.18;
+    $igv = $subtotal_carro_final*18/100;
+    $total_carro_final = number_format((float)$total_carro_final, 2, '.', '');
+    $subtotal_carro_final = number_format((float)$subtotal_carro_final, 2, '.', '');
+    $igv = number_format((float)$igv, 2, '.', '');
+
 ?>
 <section id="carro" class="contenedor">
     <div class="page-header">
@@ -52,6 +61,34 @@ if ($total_lineas!=0) {
                 <?php
                     echo $table;
                 ?>
+            </tbody>
+        </table>
+        <table class="tabla_total table table-bordered pull-right">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>S/. <?php echo $subtotal_carro_final; ?></td>
+                </tr>
+                <tr>
+                    <td>I.G.V. 18%</td>
+                    <td>S/. <?php echo $igv; ?></td>
+                </tr>
+                <tr>                    
+                    <td>Costo de Envio</td>
+                    <td><strong>Gratis!!</strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Tu total</h3>
+                    </td>
+                    <td><h3>S/.<?php echo $total_carro_final; ?></h3></td>
+                </tr>
             </tbody>
         </table>
     </div>
