@@ -15,5 +15,7 @@ img{width:100%}
 .menu-primario .menu-main li a:hover,.menu-primario .menu-main li a.activo{color:#fff;background:#29a6e5;text-decoration:none}
 #catalogo .filtro{box-shadow:0 -1px 0 rgba(0,0,0,0.08),0 2px 4px rgba(0,0,0,0.015);border-bottom:1px solid rgba(0,0,0,0.08);padding:15px 0;}
 #catalogo .filtro select{float:right}
-.productos{margin:20px 0}
+#carro .tabla_carro figure img{width:100px}
+.productos{margin:20px 0;}
+.productos figure{width:100%;height:160px;overflow:hidden}
 #producto_single{margin-top:30px}

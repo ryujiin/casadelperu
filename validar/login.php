@@ -23,7 +23,7 @@ $consulta = $db->consulta("SELECT * FROM usuarios WHERE correo = '$usuario' AND 
 			$_SESSION['usuario'] = $usuario;
 			$_SESSION['id_usuario'] = $resultados['id_usuario'];
 			$_SESSION['login'] = True;
-			header("Location: /casa/");
+			header("Location: /");
 		}else{
 			echo "no estoy login";
 		}

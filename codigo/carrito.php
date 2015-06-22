@@ -1,4 +1,7 @@
 <?php
+$total_carro='';
+$total_lineas='';
+$array_lineas_carro = '';
 if ($login==True) {
 	$query = "SELECT * FROM `carro` WHERE `id_usuario` = $id_user AND estado='Activo' LIMIT 1";
 	$consulta = $db->consulta($query);
@@ -19,7 +22,7 @@ if ($login==True) {
 	}
 	$_SESSION['id_carro']=$id_carro;
 	//Ayar el Todal del carro;
-	$query="SELECT * FROM linea_pedido WHERE id_carro = $id_carro";
+	$query="SELECT * FROM linea_pedido INNER JOIN producto ON linea_pedido.id_producto = producto.id_producto WHERE id_carro = $id_carro";
 	$consulta = $db->consulta($query);
 	$total_carro = 0;
 	$total_lineas = $db->num_rows($consulta);
