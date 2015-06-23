@@ -29,7 +29,7 @@ if($db->num_rows($consulta)>0){
 		<td><?php echo $resultados['creado'] ?></td>
 		<td>
 			<a class="btn btn-default" href="" role="button">Ver</a>
-			<a class="btn btn-default" href="?page=carro&form=editar&producto=<?php echo $resultados['id_carro'] ?>" role="button">Editar</a>
+			<a class="btn btn-default" href="?page=carro&form=editar&carro=<?php echo $resultados['id_carro'] ?>" role="button">Editar</a>
 			<button type="button" class="btn btn-primary boton_eliminar" data-toggle="modal" data-target="#eliminar_carro<?php echo $resultados['id_carro'] ?>">
 					Eliminar
 				</button>

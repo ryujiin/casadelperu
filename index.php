@@ -54,6 +54,13 @@ include('codigo/carrito.php');
                             <li><?php echo $user; ?></li>
                             <li><a href="/?page=carro"><?php echo $total_lineas ?> - items <span>S/.<?php echo $total_carro ?></span></a></li>
                             <li><a href="/?page=pagar">Checkout</a></li>
+                            <?php
+                            if ($login==True) {
+                            ?>
+                            <li><a href="/logout.php">Salir</a></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </nav>
                 </div>
@@ -76,6 +83,8 @@ include('codigo/carrito.php');
                 }else{
                     include('codigo/catalogo.php');
                 }
+            }elseif ($page=='crear_cuenta') {
+                include('htmls/crear_cuenta.php');
             }else{
                 if ($page=='carro') {
                     include ('codigo/carro.php');

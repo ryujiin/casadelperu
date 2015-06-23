@@ -11,6 +11,7 @@
 	      	<div class="col-md-6">
 	        	<h3>Nuevos clientes</h3>
 	        	<p>Al crear una cuenta en Casadelperu.com tu proceso de compra es más rápido porque tus datos ya están registrados en nuestra tienda, además podrás hacer un seguimiento de tus pedidos y estar informado de las últimas novedades.</p>
+	        	<a class="btn btn-default" href="/?page=crear_cuenta" role="button">Crear cuenta</a>
 	        </div>
 	        <div class="col-md-6 bg-success">
 	        	<h3>Clientes registrados</h3>        	
