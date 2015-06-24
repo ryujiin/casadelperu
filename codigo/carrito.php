@@ -1,7 +1,7 @@
 <?php
 $total_carro='';
 $total_lineas='';
-$array_lineas_carro = '';
+
 if ($login==True) {
 	$query = "SELECT * FROM `carro` WHERE `id_usuario` = $id_user AND estado='Activo' LIMIT 1";
 	$consulta = $db->consulta($query);

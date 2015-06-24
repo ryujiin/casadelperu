@@ -26,11 +26,11 @@ if ($login == True) {
 			</div>
 			<div class="estrellas">
 				<label for="">Producto Rating:</label>
-				<span class="glyphicon glyphicon-star"></span>
-				<span class="glyphicon glyphicon-star"></span>
-				<span class="glyphicon glyphicon-star"></span>
-				<span class="glyphicon glyphicon-star"></span>
-				<span class="glyphicon glyphicon-star"></span>
+				<span class="glyphicon glyphicon-star" data-valor='1'	></span>
+				<span class="glyphicon glyphicon-star" data-valor='2' ></span>
+				<span class="glyphicon glyphicon-star" data-valor='3' ></span>
+				<span class="glyphicon glyphicon-star" data-valor='4' ></span>
+				<span class="glyphicon glyphicon-star" data-valor='5' ></span>
 			</div>
 			<div class="precios">
 				<h2>S/. <?php echo $producto_res['precio']; ?>.00</h2>
@@ -40,7 +40,7 @@ if ($login == True) {
 				<p><?php echo $producto_res['descripcion']; ?></p>
 			</blockquote>
 			<form action="validar/add_cart.php" method='post'>
-				<input type="hidden" name="id_producto" value="<?php echo $producto_res['id_producto'] ?>">
+				<input type="hidden" id="id_producto" name="id_producto" value="<?php echo $producto_res['id_producto'] ?>">
 				<input type="hidden" name="total" value="<?php echo $producto_res['precio'] ?>">
 				<p class="text-center">
 					<?php echo $boton_add_cart;?>

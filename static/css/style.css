@@ -20,4 +20,6 @@ img{width:100%}
 #carro .tabla_total thead{display:none}
 .productos{margin:20px 0;}
 .productos figure{width:100%;height:160px;overflow:hidden}
-#producto_single{margin-top:30px}
+#producto_single{margin-top:30px;}
+#producto_single .estrellas span{cursor:pointer;color:#ccc;}
+#producto_single .estrellas span.pintado{color:#000}
