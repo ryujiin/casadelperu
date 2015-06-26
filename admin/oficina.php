@@ -12,6 +12,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+          	<li><a href="/"><span class="glyphicon glyphicon-share-alt"></span>IR a Tienda</a></li>
             <li><a href="salir.php"><span class="glyphicon glyphicon-off"></span>Salir</a></li>
           </ul>
           <form class="navbar-form navbar-right">
