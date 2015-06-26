@@ -18,18 +18,16 @@ $( document ).ready(function() {
 
 	$('#sortby').change(function() {
 		$('#form_sortby').submit();
-
-		/*
-		var busqueda = window.location.search;
-		var seleccion = this.value;
-		if (busqueda=='') {
-			window.location="?sortby="+seleccion;
-		}else{
-			debugger;
-			var url = window.location.href+'&sortby='+seleccion;
-			window.location=url;
-		}*/
 	});
-
-
+	$('.add_to_cart_catalogo').click(function () {
+		var producto = this.dataset.producto;
+		var total = this.dataset.total;
+		$.post( "/validar/add_cart.php", { id_producto: producto, total: total } ).done(function (data) {
+			if (data=='error - no login') {
+				$('#login_user').modal('show');
+			}else{
+				window.location="/?page=carro";
+			}
+		})
+	});
 });

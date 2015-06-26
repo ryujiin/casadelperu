@@ -33,6 +33,9 @@ if($db->num_rows($consulta)>0){
                                 </div>
                             </div>
                             </a>
+                            <button type="button" class="btn btn-default add_to_cart_catalogo" data-producto="'.$resultados['id_producto'].'" data-total="'.$resultados['precio'].'">
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Agregar al carro
+                            </button>
                         </article>';
     }
     $num_productos = $db->num_rows($consulta);
@@ -72,4 +75,4 @@ foreach ($sortby as $k => $v){
                     </div>
                 </div>
             </section>
-                        
+

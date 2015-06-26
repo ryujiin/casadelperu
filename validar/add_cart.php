@@ -29,5 +29,7 @@ if ($login==True) {
 		}		
 		header("Location: /?page=carro");
 	}
+}else{
+	echo "error - no login";
 }
 ?>
