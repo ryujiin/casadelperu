@@ -10,7 +10,7 @@ if ($categoria!='') {
 if($db->num_rows($consulta)>0){
 	while($resultados = $db->fetch_array($consulta)){
 		if ($categoria == $resultados['slug']) {
-			$cates.='<li><a class="activo" href="/casa/?categoria='.$resultados['slug'].'">'.$resultados['nombre_cate'].'</a></li>';
+			$cates.='<li><a class="activo" href="/?categoria='.$resultados['slug'].'">'.$resultados['nombre_cate'].'</a></li>';
 			$id_categoria = $resultados['id_categoria'];
 		}else{
 			$cates.='<li><a href="/?categoria='.$resultados['slug'].'">'.$resultados['nombre_cate'].'</a></li>';
