@@ -4,6 +4,10 @@ if ($form=='nuevo') {
 }elseif ($form=='editar') {
 	echo 'ada';
 }else{
-	include ('carros_lista.php');
+	if ($_GET['carro']!='') {
+		include('ver_carro.php');
+	}else{
+		include ('carros/carros_lista.php');
+	}
 }
 ?>

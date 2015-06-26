@@ -12,7 +12,6 @@ $valor = $_POST['valor'];
 $producto = $_POST['producto'];
 
 $query = "SELECT * FROM `valoracion` WHERE `id_usuario` = $id_usuario";
-echo $query;
 $consulta = $db->consulta($query);
 if($db->num_rows($consulta)>0){
 	$resultados = $db->fetch_array($consulta);
@@ -21,13 +20,9 @@ if($db->num_rows($consulta)>0){
 }else{
 	$query = "INSERT INTO `valoracion` (`id_valoracion`, `id_producto`, `puntos`, `id_usuario`) VALUES (NULL, '$producto', '$valor', $id_usuario);";
 }
-echo $query;
-
 $consulta = $db->consulta($query);
 
 $query = "SELECT * FROM `valoracion` WHERE `id_producto` = $producto";
-
-echo $query;
 
 $consulta = $db->consulta($query);
 if($db->num_rows($consulta)>0){
@@ -36,9 +31,9 @@ if($db->num_rows($consulta)>0){
 		$total = $total + $resultados['puntos'];
 	}
 	$valoracion = $total/$db->num_rows($consulta);
+}else{
+	$valoracion = $valor;
 }
-echo $valoracion;
-echo $query;
 
 $query = "UPDATE `producto` SET `valoracion` = $valoracion WHERE `producto`.`id_producto` = $producto;";
 $consulta = $db->consulta($query);

@@ -60,7 +60,7 @@
 							include('cliente.php');
 						}												
 					}
-					elseif ($page=='carros') {
+					elseif ($page=='carros') {					
 						include('carros.php');
 					}
 					else{
