@@ -29,6 +29,11 @@ if ($total_lineas!=0) {
                     <td>
                         S/. '.$total.'
                     </td>
+                    <td>
+                        <button type="button" class="btn btn-default elimnar_producto" aria-label="Left Align" data-linea="'.$resultados[id_linea_pedido].'">
+                            <span class="glyphicon glyphicon-trash"></span>Eliminar
+                        </button>
+                    </td>
                 </tr>';
         }       
     }
@@ -45,7 +50,7 @@ if ($total_lineas!=0) {
     </div>
     <div class="container-fluid">
         <div class="pull-right">
-            <button class="btn btn-primary">Pagar</button>
+            <a class="btn btn-primary" href="/?page=pagar" role="button">Pagar</a>
         </div>
         <table class="table tabla_carro">
             <thead>
@@ -55,6 +60,9 @@ if ($total_lineas!=0) {
                     <th>Precio</th>                    
                     <th>Cantidad</th>
                     <th>Total</th>
+                    <th>Acciones</th>
+                    
+                    
                 </tr>
             </thead>
             <tbody>
@@ -89,6 +97,7 @@ if ($total_lineas!=0) {
                     </td>
                     <td><h3>S/.<?php echo $total_carro_final; ?></h3></td>
                 </tr>
+
             </tbody>
         </table>
     </div>

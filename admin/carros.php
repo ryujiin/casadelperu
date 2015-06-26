@@ -5,7 +5,7 @@ if ($form=='nuevo') {
 	echo 'ada';
 }else{
 	if ($_GET['carro']!='') {
-		include('ver_carro.php');
+		include('carros/ver_carro.php');
 	}else{
 		include ('carros/carros_lista.php');
 	}

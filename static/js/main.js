@@ -43,7 +43,12 @@ $( document ).ready(function() {
 		var id_depa = this.value;
 		$.post('/ajax/sel_provincia.php',{depa:id_depa}).done(function (data) {			
 			$('#distrito').empty().append(data);
+		})	
+	})
+	$('.elimnar_producto').click(function () {
+		var linea = this.dataset.linea;
+		$.post('/ajax/eliminar_linea.php',{id_linea:linea}).done(function (data) {			
+			window.location='/?page=carro';
 		})
-		
 	})
 });
