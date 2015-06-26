@@ -59,6 +59,11 @@ include('codigo/carrito.php');
                             ?>
                             <li><a href="/logout.php">Salir</a></li>
                             <?php
+                                if ($_SESSION['admin']==True) {
+                                    ?>
+                            <li><a href="/admin/"><span class="glyphicon glyphicon-share-alt"></span>IR ADMIN</a></li>
+                                    <?php
+                                }
                             }
                             ?>
                         </ul>
