@@ -33,7 +33,7 @@ if($db->num_rows($consulta)>0){
                                 </div>
                             </div>
                             </a>
-                            <button type="button" class="btn btn-default add_to_cart_catalogo" data-producto="'.$resultados['id_producto'].'" data-total="'.$resultados['precio'].'">
+                            <button type="button" class="btn btn-success add_to_cart_catalogo" data-producto="'.$resultados['id_producto'].'" data-total="'.$resultados['precio'].'">
                                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Agregar al carro
                             </button>
                         </article>';

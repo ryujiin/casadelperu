@@ -30,4 +30,20 @@ $( document ).ready(function() {
 			}
 		})
 	});
+
+	/*pagar*/
+	$('#departamento').change(function () {
+		var id_depa = this.value;
+		$.post('/ajax/sel_depa.php',{depa:id_depa}).done(function (data) {
+			$('#provincia').empty().append(data);
+		})
+		
+	});
+	$('#provincia').change(function () {
+		var id_depa = this.value;
+		$.post('/ajax/sel_provincia.php',{depa:id_depa}).done(function (data) {			
+			$('#distrito').empty().append(data);
+		})
+		
+	})
 });
