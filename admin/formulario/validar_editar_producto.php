@@ -54,6 +54,6 @@ if ($_FILES["imagen_producto"]) {
 	}
 }else{
 	$consulta = $db->consulta("UPDATE producto SET nombre = '$nombre', precio = $precio, descripcion = '$descripcion', id_categoria = $categoria, stock = '$stock', actualizado = '$actualizado' WHERE id_producto = $id");
-	echo $categoria;
+	header("Location: /admin/?page=catalogo");
 }
 ?>
