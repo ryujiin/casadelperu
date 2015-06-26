@@ -40,7 +40,7 @@ if ($_FILES["imagen_producto"]) {
 					$consulta = $db->consulta("INSERT INTO producto (id_producto, nombre, precio, descripcion, id_categoria, imagen,stock) 
 														VALUES (NULL, '$nombre', $precio, '$descripcion', $categoria, '$ruta_absoluta',$stock)");
 					
-					header("Location: ../index.php");
+					header("Location: /admin/?page=catalogo)");
 				} else {
 					echo "ocurrio un error al mover el archivo.";
 				}

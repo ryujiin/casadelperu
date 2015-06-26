@@ -4,12 +4,13 @@ if ($id_categoria=='') {
     $query = "SELECT * FROM producto";
 }else{
     $query = "SELECT * FROM producto WHERE id_categoria = $id_categoria";    
-    if ($get_sort!='') {
+}
+if ($get_sort!='') {
         if ($get_sort=='popular') {
             $query = $query." ORDER BY `precio` DESC";
         }
     }
-}
+echo $query;
 $consulta = $db->consulta($query);
 $productos = '';
 if($db->num_rows($consulta)>0){

@@ -38,7 +38,7 @@ include('codigo/carrito.php');
     <body>
         <header class="container-fluid">
             <div class="contenedor row">
-                <div class="logo col-md-7">
+                <div class="logo col-md-6">
                     <h1 class="logo-main">
                         <a href="/">
                             La Casa del Perú                                                       
@@ -48,7 +48,7 @@ include('codigo/carrito.php');
                         Artesanias Peruanas para todo el Mundo
                     </p>
                 </div>
-                <div class="menu-secundario col-md-5">
+                <div class="menu-secundario col-md-6">
                     <nav class="menu menu-enlinea">
                         <ul>
                             <li><?php echo $user; ?></li>
