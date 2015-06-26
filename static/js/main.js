@@ -17,14 +17,18 @@ $( document ).ready(function() {
 	})
 
 	$('#sortby').change(function() {
+		$('#form_sortby').submit();
+
+		/*
 		var busqueda = window.location.search;
 		var seleccion = this.value;
 		if (busqueda=='') {
 			window.location="?sortby="+seleccion;
 		}else{
+			debugger;
 			var url = window.location.href+'&sortby='+seleccion;
 			window.location=url;
-		}
+		}*/
 	});
 
 

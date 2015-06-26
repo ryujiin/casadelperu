@@ -8,9 +8,14 @@ if ($id_categoria=='') {
 if ($get_sort!='') {
     if ($get_sort=='popular') {
         $query = $query." ORDER BY `valoracion` DESC";
+    }elseif ($get_sort=='novedad') {
+        $query = $query." ORDER BY `valoracion` DESC";
+    }elseif ($get_sort=='mayor') {
+        $query = $query." ORDER BY `precio` DESC";        
+    }elseif ($get_sort=='menor') {
+        $query = $query." ORDER BY `precio` ASC";  
     }
 }
-echo $query;
 $consulta = $db->consulta($query);
 $productos = '';
 if($db->num_rows($consulta)>0){
@@ -22,9 +27,9 @@ if($db->num_rows($consulta)>0){
                             </figure>
                             <div class="datos-producto">
                                 <p class="nombre">'.$resultados['nombre'].'</p>
+                                <strong>valoracion</strong>'.$resultados['valoracion'].'
                                 <div class="precio">
-                                    <span class="old-precio">S/. '.$resultados['precio'].'.00</span>
-                                    
+                                    <span class="old-precio">S/. '.$resultados['precio'].'.00</span>                                    
                                 </div>
                             </div>
                             </a>
@@ -52,9 +57,12 @@ foreach ($sortby as $k => $v){
                 </div>
                 <div class="filtro">
                     <span><?php echo $num_productos ?> resultados</span>
-                    <select name="sortby" id="sortby">
-                        <?php echo $lista_sort; ?>
-                    </select>
+                    <form action="" id="form_sortby">
+                        <input type="hidden" name="categoria" value="<?php echo $categoria ?>">
+                        <select name="sortby" id="sortby">
+                            <?php echo $lista_sort; ?>
+                        </select>
+                    </form>
                 </div>
                 <div class="productos container-fluid">
                     <div class="row">
