@@ -8,6 +8,7 @@ $precio = $_POST["precio"];
 $categoria = $_POST["categoria"];
 $stock = $_POST["stock"];
 $num_random = rand (100 ,100000 );
+$actualizado = date("Y-m-d H:i:s");
 
 if ($_FILES["imagen_producto"]) {
 	if ($_FILES["imagen_producto"]["error"] > 0){
@@ -37,10 +38,10 @@ if ($_FILES["imagen_producto"]) {
 					//cambiar ruta segun sea necesario
 					$ruta_absoluta = '/admin/formulario/'.$nombre_img;
 
-					$consulta = $db->consulta("INSERT INTO producto (id_producto, nombre, precio, descripcion, id_categoria, imagen,stock) 
-														VALUES (NULL, '$nombre', $precio, '$descripcion', $categoria, '$ruta_absoluta',$stock)");
+					$consulta = $db->consulta("INSERT INTO producto (id_producto, nombre, precio, descripcion, id_categoria, imagen,stock,valoracion,actualizado) 
+														VALUES (NULL, '$nombre', $precio, '$descripcion', $categoria, '$ruta_absoluta',$stock,0,'$actualizado')");
 					
-					header("Location: /admin/?page=catalogo)");
+					header("Location: /admin/?page=catalogo");
 				} else {
 					echo "ocurrio un error al mover el archivo.";
 				}

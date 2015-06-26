@@ -8,6 +8,7 @@ $descripcion = $_POST["descripcion"];
 $precio = $_POST["precio"];
 $categoria = $_POST["categoria"];
 $stock = $_POST["stock"];
+$actualizado = date("Y-m-d H:i:s");
 
 if ($_FILES["imagen_producto"]) {
 	if ($_FILES["imagen_producto"]["error"] > 0){
@@ -52,7 +53,7 @@ if ($_FILES["imagen_producto"]) {
 		}
 	}
 }else{
-	$consulta = $db->consulta("UPDATE producto SET nombre = '$nombre', precio = $precio, descripcion = '$descripcion', id_categoria = $categoria, stock = '$stock' WHERE id_producto = $id");
+	$consulta = $db->consulta("UPDATE producto SET nombre = '$nombre', precio = $precio, descripcion = '$descripcion', id_categoria = $categoria, stock = '$stock', actualizado = '$actualizado' WHERE id_producto = $id");
 	echo $categoria;
 }
 ?>
