@@ -23,6 +23,8 @@ img{width:100%}
 .productos .producto{text-align:center;margin-bottom:15px;}
 .productos .producto:hover .add_to_cart_catalogo{opacity:1}
 .productos .producto .add_to_cart_catalogo{opacity:0}
+.productos .producto .estrellas span{color:#ccc;}
+.productos .producto .estrellas span.pintado{color:#2dbab2}
 #producto_single{margin-top:30px;}
 #producto_single .estrellas span{cursor:pointer;color:#ccc;}
 #producto_single .estrellas span.pintado{color:#000}

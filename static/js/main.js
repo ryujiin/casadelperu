@@ -49,6 +49,6 @@ $( document ).ready(function() {
 		var linea = this.dataset.linea;
 		$.post('/ajax/eliminar_linea.php',{id_linea:linea}).done(function (data) {			
 			window.location='/?page=carro';
-		})
+		});
 	})
 });

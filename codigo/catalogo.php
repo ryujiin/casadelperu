@@ -19,7 +19,16 @@ if ($get_sort!='') {
 $consulta = $db->consulta($query);
 $productos = '';
 if($db->num_rows($consulta)>0){
+
     while($resultados = $db->fetch_array($consulta)){
+        for ($i=0; $i < 5; $i++) {
+            if ($i<$resultados['valoracion']) {
+                $estrellas = $estrellas.'<span class="glyphicon glyphicon-star pintado"></span>';
+            }else{
+                $estrellas = $estrellas.'<span class="glyphicon glyphicon-star "></span>';
+            }
+        }
+
         $productos = $productos.'<article class="producto col-md-3">
                             <a href="/?producto='.$resultados['id_producto'].'">
                             <figure>
@@ -27,6 +36,9 @@ if($db->num_rows($consulta)>0){
                             </figure>
                             <div class="datos-producto">
                                 <p class="nombre">'.$resultados['nombre'].'</p>
+                                <div class="estrellas">
+                                '.$estrellas.'
+                                </div>
                                 <strong>valoracion</strong>'.$resultados['valoracion'].'
                                 <div class="precio">
                                     <span class="old-precio">S/. '.$resultados['precio'].'.00</span>                                    
@@ -37,6 +49,7 @@ if($db->num_rows($consulta)>0){
                                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Agregar al carro
                             </button>
                         </article>';
+        $estrellas='';
     }
     $num_productos = $db->num_rows($consulta);
 }
