@@ -11,6 +11,10 @@ require __DIR__ . '/bootstrap.php';
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
+
+include('../mysql.php');
+$db = new MySQL();
+
 session_start();
 if(isset($_GET['success']) && $_GET['success'] == 'true') {
 	
@@ -73,8 +77,16 @@ if(isset($_GET['success']) && $_GET['success'] == 'true') {
 	// (See bootstrap.php for more on `ApiContext`)
 	$result = $payment->execute($execution, $apiContext);
 
-	echo "<pre>";
-	var_dump($result);
+    $query = "SELECT * FROM `carro` WHERE `id_usuario` = $id_user AND estado='Activo' LIMIT 1";
+
+    $consulta = $db->consulta($query);
+    if($db->num_rows($consulta)>0){
+        while($resultados = $db->fetch_array($consulta)){
+            $id_carro = $resultados['id_carro'];
+        }
+    }
+
+    $query = "SELECT * FROM `carro` WHERE `id_usuario` = $id_user AND estado='Activo' LIMIT 1";
 	
 	
 } else {

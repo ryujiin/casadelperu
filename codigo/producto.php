@@ -6,7 +6,24 @@ if($db->num_rows($consulta)>0){
     while($resultados = $db->fetch_array($consulta)){
     	$producto_res=$resultados;
     }
+    $estrellas ='';
+    $valoracion = $producto_res['valoracion'];
+    $valoracion = number_format((float)$valoracion, 1, '.', '');
+
+    for ($i=0; $i < 5; $i++) { 
+    	$data_valor = $i+1;
+    	if ($i<$valoracion) {
+    		$estrellas = $estrellas.'<span class="glyphicon glyphicon-star pintado" data-valor="'.$data_valor.'"	></span>';
+    	}else{
+    		$estrellas = $estrellas.'<span class="glyphicon glyphicon-star" data-valor="'.$data_valor.'"	></span>';
+    	}
+    }
+
 }
+$query = "SELECT * FROM `valoracion` WHERE `id_producto` = $producto";
+$consulta = $db->consulta($query);
+$votos = $db->num_rows($consulta);
+
 if ($login == True) {
 	$boton_add_cart = '<button type="submit" class="btn btn-success btn-lg add_cart" data-producto="'.$producto_res['id_producto'].'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Agregar al carro</button>';
 }else{
@@ -26,12 +43,11 @@ if ($login == True) {
 			</div>
 			<div class="estrellas">
 				<label for="">Producto Rating:</label>
-				<span class="glyphicon glyphicon-star" data-valor='1'	></span>
-				<span class="glyphicon glyphicon-star" data-valor='2' ></span>
-				<span class="glyphicon glyphicon-star" data-valor='3' ></span>
-				<span class="glyphicon glyphicon-star" data-valor='4' ></span>
-				<span class="glyphicon glyphicon-star" data-valor='5' ></span>
+				<?php  echo $estrellas;?>
+				<ins><?php echo $valoracion?></ins>
+				<strong>(<?php echo $votos; ?>)</strong>
 			</div>
+
 			<div class="precios">
 				<h2>S/. <?php echo $producto_res['precio']; ?>.00</h2>
 			</div>			

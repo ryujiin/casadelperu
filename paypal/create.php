@@ -1,4 +1,5 @@
 <?php
+echo 'kik';
 $productid = $_POST['productid'];
 $name = $_POST['itemname'];
 $quantity = intval($_POST['quantity']);
@@ -127,8 +128,8 @@ $transaction->setAmount($amount)
 // payment approval/ cancellation.
 $baseUrl = getBaseUrl();
 $redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl("$baseUrl/exito.php?success=true")
-	->setCancelUrl("$baseUrl/integrate-paypal-rest-api-php-mysql/execute.php?success=false");
+$redirectUrls->setReturnUrl("$baseUrl/execute.php?success=true")
+	->setCancelUrl("$baseUrl/execute.php?success=false");
 
 // ### Payment
 // A Payment Resource; create one using

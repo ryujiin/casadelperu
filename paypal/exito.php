@@ -1,98 +1,40 @@
 <?php
-include('mysql.php');
-$db = new MySQL();
+// #Execute Payment
+// This  shows how you can complete
+// a payment that has been approved by
+// the buyer by logging into paypal site.
+// You can optionally update transaction
+// information by passing in one or more transactions.
+// API used: POST '/v1/payments/payment/<payment-id>/execute'.
+
+require __DIR__ . '/bootstrap.php';
+use PayPal\Api\ExecutePayment;
+use PayPal\Api\Payment;
+use PayPal\Api\PaymentExecution;
 session_start();
-$producto = $_GET['producto'];
-$categoria = $_GET['categoria'];
-$page = $_GET['page'];
-$login = '';
-$login = $_SESSION['login'];
-//Averiguar usuario
-if ($login == True) {
-    $user = 'Bienvenido '. $_SESSION['usuario'];
-    $id_user = $_SESSION['id_usuario'];
-}else{
-    $user = '<button type="button" class="login-boton" data-toggle="modal" data-target="#login_user">Ingresar/Registrarse</button>';
+if(isset($_GET['success']) && $_GET['success'] == 'true') {
+    
+    $paymentId_session = $_SESSION['paymentId']; 
+    
+    $paymentId = $paymentId_session;
+    // Get the payment Object by passing paymentId
+    $payment = Payment::get($paymentId, $apiContext);
+    
+    // PaymentExecution object includes information necessary 
+    // to execute a PayPal account payment. 
+    // The payer_id is added to the request query parameters
+    // when the user is redirected from paypal back to your site
+    $execution = new PaymentExecution();
+    $execution->setPayerId($_GET['PayerID']);
+    
+    //Execute the payment
+    // (See bootstrap.php for more on `ApiContext`)
+    $result = $payment->execute($execution, $apiContext);
+
+    echo "<pre>";
+    var_dump($result);
+    
+    
+} else {
+    echo "User cancelled payment.";
 }
-include('codigo/carrito.php');
-
-?>
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="La Casa del Peru">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="/static/css/normalize.css">
-        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/static/css/main.css">
-        <link rel="stylesheet" href="/static/css/style.css">
-        <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
-        <header class="container-fluid">
-            <div class="contenedor row">
-                <div class="logo col-md-6">
-                    <h1 class="logo-main">
-                        <a href="/">
-                            La Casa del Perú                                                       
-                        </a>
-                    </h1>
-                    <p class="logo-subtitulo">
-                        Artesanias Peruanas para todo el Mundo
-                    </p>
-                </div>
-                <div class="menu-secundario col-md-6">
-                    <nav class="menu menu-enlinea">
-                        <ul>
-                            <li><?php echo $user; ?></li>
-                            <li><a href="/?page=carro"><?php echo $total_lineas ?> - items <span>S/.<?php echo $total_carro ?></span></a></li>
-                            <li><a href="/?page=pagar">Checkout</a></li>
-                            <?php
-                            if ($login==True) {
-                            ?>
-                            <li><a href="/logout.php">Salir</a></li>
-                            <?php
-                                if ($_SESSION['admin']==True) {
-                                    ?>
-                            <li><a href="/admin/"><span class="glyphicon glyphicon-share-alt"></span>IR ADMIN</a></li>
-                                    <?php
-                                }
-                            }
-                            ?>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="menu-primario">
-                <nav class="menu-main menu-enlinea">
-                    <?php
-                    include('htmls/menu_principal.php');
-                    ?>
-                </nav>
-            </div>
-        </header>
-        <div class="main">
-            <div class="page-header">
-                <h1>Exelente!!</h1>
-            </div>
-        </div>
-        <?php
-        if ($login!=True) {
-            include('htmls/forms_login.php');            
-        }
-        echo $db->getTotalConsultas();
-        ?>
-        <footer></footer>
-        <script src="/static/js/vendor/jquery.js"></script> 
-        <script src="/static/js/vendor/bootstrap.min.js"></script>
-        <script src="/static/js/plugins.js"></script>
-        <script src="/static/js/main.js"></script>
-    </body>
-</html>

@@ -76,20 +76,20 @@ if($db->num_rows($consulta)>0){
 				<div class="col-md-4">
 					<div class="product">
 						<form action="/paypal/create.php" method="post">
-						<input type="hidden" value="1" name="productid"/>
-						<input type="hidden" value="Pago a Casa del Peru" name="itemname"/>
-						<input type="hidden" value="<?php echo $total_carro_final; ?>" name="itemprice"/>
-						<input type="hidden" value="0" name="shipping"/>
-						<input type="hidden" value="0" name="tax"/>
-						<input type="hidden" value="USD" name="currencycode"/>
-						<input type="hidden" value="Buy Sony Alpha NEX-5TL" name="paypaldesc"/>
-						<input type="hidden" value="1" name="quantity"/>
+							<input type="hidden" value="1" name="productid"/>
+							<input type="hidden" value="Pago a Casa del Peru" name="itemname"/>
+							<input type="hidden" value="<?php echo $total_carro_final; ?>" name="itemprice"/>
+							<input type="hidden" value="0" name="shipping"/>
+							<input type="hidden" value="0" name="tax"/>
+							<input type="hidden" value="USD" name="currencycode"/>
+							<input type="hidden" value="Buy Sony Alpha NEX-5TL" name="paypaldesc"/>
+							<input type="hidden" value="1" name="quantity"/>
 
-						</select>
-						</span>
-						<input class="submit btn btn-success" type="submit" value="Pagar con Paypal" name="subbutton"/>
+							</select>
+							</span>
+							<input class="submit btn btn-success" type="submit" value="Pagar con Paypal" name="subbutton"/>
 						</form>
-						</div>
+					</div>
 				</div>				
 	      	</div>
 		</div>
